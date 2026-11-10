@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weihnachtsfeier Praxis-Team – Wer ist dabei?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#a3192b; --bg-deep:#7d1020; --on-bg:#fff6ee; --on-bg-muted:#f6cfc9;
+  --paper:#fffaf4; --ink:#2a1215; --muted:#7a5a5c; --line:#ecd9d2;
+  --gold:#f2c14e; --fir:#1f6b45; --fir-soft:#e1f1e7; --no:#a3192b; --no-soft:#fbe3e5;
+  --chip:#f5ebe4;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#5a0d17; --bg-deep:#3a0810; --on-bg:#fff2ea; --on-bg-muted:#e8b7b0;
+    --paper:#2a1418; --ink:#fbeee9; --muted:#c9a5a3; --line:#47262b;
+    --gold:#f5cc6a; --fir:#7fd3a3; --fir-soft:#1d3a2b; --no:#ff8f9c; --no-soft:#4a1d24;
+    --chip:#3a1e23;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#5a0d17; --bg-deep:#3a0810; --on-bg:#fff2ea; --on-bg-muted:#e8b7b0;
+  --paper:#2a1418; --ink:#fbeee9; --muted:#c9a5a3; --line:#47262b;
+  --gold:#f5cc6a; --fir:#7fd3a3; --fir-soft:#1d3a2b; --no:#ff8f9c; --no-soft:#4a1d24;
+  --chip:#3a1e23;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--on-bg);font-family:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;
+  background:var(--bg);
+  background-image:radial-gradient(ellipse at 50% -10%, color-mix(in srgb,var(--gold) 18%,transparent), transparent 60%),
+                   linear-gradient(var(--bg), var(--bg-deep));
+  background-attachment:fixed;overflow-x:hidden}
+
+/* Schnee */
+.snow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.snow i{position:absolute;top:-2vh;color:#fff;opacity:.75;font-style:normal;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(var(--dx,20px),105vh,0) rotate(200deg)}}
+@media (prefers-reduced-motion: reduce){.snow i{animation:none;top:var(--y)}}
+
+.garland{position:relative;z-index:1;display:block;width:100%;height:auto;max-width:44rem;margin:0 auto}
+main{position:relative;z-index:1;max-width:34rem;margin:0 auto;padding:0 1.25rem 3rem}
+
+.hero{text-align:center;margin:.5rem 0 2rem}
+.star{width:2.6rem;height:2.6rem;margin:0 auto .25rem;display:block;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--gold) 70%,transparent))}
+.date{font-family:"Young Serif",Georgia,serif;font-size:clamp(4.5rem,22vw,7rem);line-height:.9;margin:0;letter-spacing:-.02em;color:var(--on-bg);text-shadow:0 3px 0 var(--bg-deep)}
+.date small{display:block;font-size:.3em;color:var(--gold);margin-top:.4em;letter-spacing:0;text-shadow:none}
+h1{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:1.55rem;line-height:1.25;margin:1rem 0 .4rem}
+.lede{color:var(--on-bg-muted);margin:0 auto;max-width:28rem}
+
+.me{text-align:center;color:var(--on-bg-muted);font-size:.95rem;margin:0 0 1.5rem}
+.me strong{color:var(--gold)}
+
+.card{position:relative;background:var(--paper);color:var(--ink);border-radius:18px;padding:1.4rem 1.2rem 1.2rem;margin-bottom:1.6rem;
+  box-shadow:0 10px 30px -12px rgba(40,0,8,.55);border-top:6px solid var(--gold)}
+.card::after{content:"";position:absolute;top:-22px;right:18px;width:44px;height:44px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cpath d='M22 22c-6-9-16-10-17-4s9 6 17 4zm0 0c6-9 16-10 17-4s-9 6-17 4z' fill='%23c8202f'/%3E%3Cpath d='M22 22l-7 16M22 22l7 16' stroke='%23c8202f' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='22' r='4.5' fill='%239a1222'/%3E%3C/svg%3E") no-repeat center/contain}
+.time{font-weight:700;color:var(--no);font-size:.95rem}
+.card h2{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:1.4rem;margin:.1rem 0 .15rem}
+.where{color:var(--muted);margin:0 0 1rem;font-size:.95rem}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem}
+.choices button{font:inherit;font-weight:700;font-size:1rem;padding:.8rem .5rem;border-radius:14px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .1s}
+.choices button:active{transform:scale(.97)}
+.choices button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.choices button[aria-pressed="true"][data-v="ja"]{background:var(--fir);border-color:var(--fir);color:#fff}
+.choices button[aria-pressed="true"][data-v="nein"]{background:var(--no-soft);border-color:var(--no);color:var(--no)}
+.choices button:disabled{opacity:.55;cursor:not-allowed}
+
+.group+.group{margin-top:.8rem;padding-top:.8rem;border-top:1px dashed var(--line)}
+.group h3{margin:0 0 .4rem;font-size:.9rem;font-weight:700;display:flex;justify-content:space-between}
+.group h3 .n{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
+.g-ja h3{color:var(--fir)} .g-nein h3{color:var(--no)}
+.names{display:flex;flex-wrap:wrap;gap:.35rem;margin:0;padding:0;list-style:none}
+.names li{font-size:.88rem;background:var(--chip);border-radius:999px;padding:.2rem .7rem}
+.names li.you{font-weight:700}
+.empty{color:var(--muted);font-size:.9rem;margin:0}
+
+.note{font-size:.9rem;color:var(--on-bg-muted);text-align:center;min-height:1.3em;margin:0}
+footer{text-align:center;margin-top:1rem;font-size:1.4rem;letter-spacing:.4em;opacity:.85}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.namebox{background:var(--paper);color:var(--ink);border-radius:18px;padding:1rem 1.1rem;margin:0 0 1.6rem;box-shadow:0 10px 30px -12px rgba(40,0,8,.55)}
+.namebox label{display:block;font-weight:700;margin-bottom:.4rem}
+.namebox .row{display:flex;gap:.5rem}
+.namebox input{flex:1;min-width:0;font:inherit;padding:.65rem .8rem;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink)}
+.namebox input:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.namebox .hint{font-size:.85rem;color:var(--muted);margin:.45rem 0 0}
+.namebox.need{animation:nudge .4s}
+@keyframes nudge{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.remove{display:block;margin:1rem auto 0;background:none;border:none;color:var(--on-bg-muted);font:inherit;font-size:.88rem;text-decoration:underline;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="snow" id="snow" aria-hidden="true"></div>
+
+
+<svg class="garland" viewBox="0 0 400 70" aria-hidden="true">
+  <path d="M-5 8 Q100 52 200 18 T405 8" fill="none" stroke="#1f5a3a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M-5 8 Q100 52 200 18 T405 8" fill="none" stroke="#2f7a4e" stroke-width="5" stroke-dasharray="2 7" stroke-linecap="round"/>
+  <g stroke="#f2c14e" stroke-width="1.2">
+    <line x1="40" y1="20" x2="40" y2="34"/><line x1="95" y1="32" x2="95" y2="50"/>
+    <line x1="150" y1="30" x2="150" y2="44"/><line x1="250" y1="16" x2="250" y2="32"/>
+    <line x1="305" y1="18" x2="305" y2="40"/><line x1="360" y1="12" x2="360" y2="26"/>
+  </g>
+  <circle cx="40" cy="39" r="6" fill="#f2c14e"/><circle cx="95" cy="56" r="7.5" fill="#ffffff"/>
+  <circle cx="150" cy="49" r="6" fill="#f2c14e"/><circle cx="250" cy="37" r="6.5" fill="#ffffff"/>
+  <circle cx="305" cy="46" r="7.5" fill="#f2c14e"/><circle cx="360" cy="31" r="6" fill="#ffffff"/>
+  <g fill="#fff" opacity=".55"><circle cx="38" cy="37" r="1.6"/><circle cx="92" cy="53" r="2"/><circle cx="148" cy="47" r="1.6"/><circle cx="248" cy="35" r="1.7"/><circle cx="302" cy="43" r="2"/><circle cx="358" cy="29" r="1.6"/></g>
+</svg>
+
+<main>
+  <header class="hero">
+    <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path fill="#f2c14e" d="M12 1.8l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9l7.1-.6z"/></svg>
+    <p class="date">22.12.<small>Dienstag</small></p>
+    <h1>Weihnachtsfeier Praxis-Team</h1>
+    <p class="lede">Erst Glühwein auf dem Weihnachtsmarkt, dann Essen im Großen Kiepenkerl. Sag kurz, wo du dabei bist – du kannst deine Antwort jederzeit ändern.</p>
+  </header>
+
+  <p class="me" id="me">Antworten werden geladen …</p>
+
+  <div class="namebox" id="namebox">
+    <label for="name">Dein Name</label>
+    <div class="row"><input id="name" autocomplete="name" maxlength="60" placeholder="Vor- und Nachname"></div>
+    <p class="hint">Wird bei deiner Antwort angezeigt und auf diesem Gerät gemerkt.</p>
+  </div>
+<article class="card" data-event="markt">
+    <div class="time">ab 18:00 Uhr</div>
+    <h2>Kiepenkerl-Weihnachtsdorf</h2>
+    <p class="where">Am Kiepenkerl-Denkmal, direkt vor dem Restaurant</p>
+    <div class="choices" role="group" aria-label="Kiepenkerl-Weihnachtsdorf">
+      <button data-v="ja" aria-pressed="false">Bin dabei</button>
+      <button data-v="nein" aria-pressed="false">Nicht dabei</button>
+    </div>
+    <div class="who"></div>
+  </article>
+
+  <article class="card" data-event="feier">
+    <div class="time">ab 20:00 Uhr</div>
+    <h2>Feier im Großen Kiepenkerl</h2>
+    <p class="where">Spiekerhof 45, Münster</p>
+    <div class="choices" role="group" aria-label="Feier im Großen Kiepenkerl">
+      <button data-v="ja" aria-pressed="false">Bin dabei</button>
+      <button data-v="nein" aria-pressed="false">Nicht dabei</button>
+    </div>
+    <div class="who"></div>
+  </article>
+
+  <p class="note" id="note"></p>
+  <button class="remove" id="remove" hidden>Meine Antwort löschen</button>
+  <footer aria-hidden="true">🎄🎁⭐</footer>
+</main>
+<script>
+// ▼▼▼ Hier die Web-App-URL aus Google Apps Script einfügen ▼▼▼
+const API_URL = "https://script.google.com/macros/s/AKfycbx7rESJTlCadUTHW41LRtyUeiOC5UxCBg3pKHBQzpny3-4YoTHREZmsaQ47QJTqpb1pbA/exec";
+// ▲▲▲
+
+(function(){
+  const snow = document.getElementById("snow");
+  for (let i = 0; i < 28; i++) {
+    const f = document.createElement("i");
+    f.textContent = i % 3 ? "•" : "❄";
+    f.style.left = Math.random() * 100 + "vw";
+    f.style.fontSize = (i % 3 ? 6 + Math.random() * 8 : 10 + Math.random() * 10) + "px";
+    f.style.animationDuration = 9 + Math.random() * 12 + "s";
+    f.style.animationDelay = -Math.random() * 20 + "s";
+    f.style.setProperty("--dx", (Math.random() * 80 - 40) + "px");
+    f.style.setProperty("--y", Math.random() * 100 + "vh");
+    snow.append(f);
+  }
+
+  const store = {
+    get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+    set(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+  };
+  let token = store.get("wfp-token");
+  if (!token) {
+    const a = new Uint8Array(16); crypto.getRandomValues(a);
+    token = [...a].map(b => b.toString(16).padStart(2,"0")).join("");
+    store.set("wfp-token", token);
+  }
+
+  const LABELS = {ja:"Dabei", nein:"Nicht dabei"};
+  const meEl = document.getElementById("me"), noteEl = document.getElementById("note");
+  const nameEl = document.getElementById("name"), nameBox = document.getElementById("namebox");
+  const removeBtn = document.getElementById("remove");
+  const cards = [...document.querySelectorAll(".card")];
+  nameEl.value = store.get("wfp-name") || "";
+  let rows = [], loaded = false, busy = false;
+  const configured = /^https:\/\/script\.google\.com\//.test(API_URL);
+  const note = t => { noteEl.textContent = t || ""; };
+  const mine = () => rows.find(r => r.mine) || null;
+
+  function render(){
+    const me = mine();
+    if (me && !nameEl.value) nameEl.value = me.name;
+    cards.forEach(card => {
+      const ev = card.dataset.event;
+      card.querySelectorAll(".choices button").forEach(b => {
+        b.setAttribute("aria-pressed", String(!!me && me[ev] === b.dataset.v));
+        b.disabled = !configured || !loaded || busy;
+      });
+      const who = card.querySelector(".who");
+      who.replaceChildren();
+      let any = false;
+      ["ja","nein"].forEach(v => {
+        const list = rows.filter(r => r[ev] === v).sort((a,b) => a.name.localeCompare(b.name,"de"));
+        if (!list.length) return;
+        any = true;
+        const g = document.createElement("div"); g.className = "group g-" + v;
+        const h = document.createElement("h3");
+        const l = document.createElement("span"); l.textContent = LABELS[v];
+        const n = document.createElement("span"); n.className = "n"; n.textContent = list.length;
+        h.append(l, n);
+        const ul = document.createElement("ul"); ul.className = "names";
+        list.forEach(r => {
+          const li = document.createElement("li");
+          li.textContent = r.mine ? r.name + " (du)" : r.name;
+          if (r.mine) li.className = "you";
+          ul.append(li);
+        });
+        g.append(h, ul); who.append(g);
+      });
+      if (!any) {
+        const p = document.createElement("p"); p.className = "empty";
+        p.textContent = loaded ? "Noch keine Antworten – mach den Anfang." : "";
+        who.append(p);
+      }
+    });
+    removeBtn.hidden = !me;
+    if (!configured) { meEl.textContent = "Die Umfrage ist noch nicht mit der Google-Tabelle verbunden."; return; }
+    if (!loaded) return;
+    const total = rows.length;
+    meEl.innerHTML = total === 1 ? "<strong>1 Person</strong> hat schon geantwortet." : "<strong>" + total + " Personen</strong> haben schon geantwortet.";
+  }
+
+  async function load(){
+    if (!configured || busy) return;
+    try {
+      const res = await fetch(API_URL + "?token=" + token);
+      const d = await res.json();
+      if (d.ok && !busy) { rows = d.rows; loaded = true; render(); }
+    } catch(e){
+      if (!loaded) meEl.textContent = "Antworten konnten nicht geladen werden. Lade die Seite neu.";
+    }
+  }
+
+  async function send(payload, okText){
+    busy = true; render();
+    try {
+      const res = await fetch(API_URL, {method:"POST", body: JSON.stringify(Object.assign({token}, payload))});
+      const d = await res.json();
+      if (!d.ok) throw new Error(d.error);
+      rows = d.rows; loaded = true;
+      note(okText); setTimeout(() => note(""), 2500);
+    } catch(e){
+      note("Speichern hat nicht geklappt. Bitte gleich nochmal tippen.");
+    } finally { busy = false; render(); }
+  }
+
+  function vote(ev, v){
+    const name = nameEl.value.trim();
+    if (!name) {
+      nameBox.classList.remove("need"); void nameBox.offsetWidth; nameBox.classList.add("need");
+      nameEl.focus(); note("Trag bitte zuerst deinen Namen ein.");
+      return;
+    }
+    store.set("wfp-name", name);
+    const me = mine() || {};
+    const next = {name, markt: me.markt || null, feier: me.feier || null};
+    next[ev] = me[ev] === v ? null : v;
+    send(next, next[ev] === "ja" ? "Super, du bist dabei! 🎄" : "Gespeichert.");
+  }
+
+  cards.forEach(card => card.querySelectorAll(".choices button").forEach(b =>
+    b.addEventListener("click", () => vote(card.dataset.event, b.dataset.v))));
+
+  nameEl.addEventListener("change", () => {
+    const name = nameEl.value.trim();
+    store.set("wfp-name", name);
+    const me = mine();
+    if (me && name && name !== me.name) send({name, markt: me.markt, feier: me.feier}, "Name geändert.");
+  });
+
+  removeBtn.addEventListener("click", () => {
+    if (confirm("Deine Antwort wirklich löschen?")) send({name: nameEl.value.trim() || "x", remove: true}, "Deine Antwort wurde gelöscht.");
+  });
+
+  render(); load();
+  setInterval(() => { if (!document.hidden) load(); }, 20000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>
